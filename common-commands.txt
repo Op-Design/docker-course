@@ -1,0 +1,57 @@
+- FROM - the base image to use for the new image
+
+- WORKDIR - the working directory
+
+- COPY - copies file and directories from the build contexts to the image
+
+- RUN - executes commands in the shell during image build
+
+- EXPOSE - informs docker container will listen on specific ports at runtime
+
+- ENV - sets environment variables during the build process
+
+- ARG - sets the build time variables
+
+- VOLUME - creates a mount point for externally mounted volumes (specifying the location in your cotaininer to connect external storage)
+
+- CMD - provide default commands to execute when the container starts.
+- "Entrypoint" - entry point specifies the default executable to be run when the container starts
+
+
+
+Link where all these commands can be found: https://attachments.convertkitcdnn2.com/775726/801253ee-b7da-4e26-818a-2c51de768f12/docker-guide.pdf?ck_subscriber_id=2499464316&utm_campaign=Landing%20Page%20or%20Form%20-%206033727&utm_medium=email&utm_source=convertkit
+
+1. Build an image from a Dockerfile:
+        docker -t build image_name path_to_dockerfile
+                # Example
+                docker -t build myapp .
+
+2. List all local images:
+        docker images
+                # Example
+                docker ls
+
+3. Pull an image from Docker Hub:
+        docker pull image_name:tag
+                # Example
+                docker pull nginx:latest
+
+4. Remove a local image:
+        docker rmi image_name:tag
+                # Example
+                docker rmi myapp:latest
+        docker rm [image_name/image_id]
+                # Example
+                docker rm fd484f19954f
+
+5. Tag an image:
+        docker tag source_image:tag new_image:tag
+                # Example
+                docker tag myapp:latest myapp:v1
+
+
+- docker run -p 5173:5173 react-docker
+        - Opens ther port in docker and your machine
+
+- docker run -p 5173:5173 -v "($pwd):/app" -v /app/node_modules react-docker
+        - Creates a volume in /app has all the cotents of the present working directory. Additionally creates a volume of the node_modules
